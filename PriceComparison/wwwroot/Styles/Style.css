@@ -1,0 +1,74 @@
+﻿body {
+    font-family: Arial, sans-serif;
+}
+
+.form-container {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+
+.form-check-label {
+    margin-left: 5px;
+}
+
+.form-label {
+    display: block;
+    text-align: right;
+}
+
+#age {
+    text-align: right;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #000;
+}
+
+/*body{
+    font-family:Algerian;
+}*/
+
+
+/*.form-check-label {
+    margin-left: 5px;
+}
+
+.form-label {
+    display: block;
+    text-align: right;
+}
+
+#age {
+    text-align: right;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #000;
+}
+
+.carousel-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: #007bff;*/ /* Change background color */
+    /*color: #ff0fff;*/ /* Change text color */
+    /*border: none;*/ /* Remove border if needed */
+    /* Add any additional styling here */
+/*}*/
+
+/* Customize carousel control icons */
+/*.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #ff0fff;*/ /* Change icon color */
+    /* You may need to customize the icon appearance further */
+/*}*/
