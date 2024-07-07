@@ -32,7 +32,6 @@
         LaptopOrTablet = 6,
         ExtremeSports = 7,
         WinterSports = 8,
-        WorseningMedicalCondition = 9,
 
     }
 }

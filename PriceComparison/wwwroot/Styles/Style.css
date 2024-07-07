@@ -28,6 +28,22 @@
     color: #000;
 }
 
+.standout-card {
+    /* border: 2px solid #ffc107; */ /* Gold border to make it stand out */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /*Add a shadow */
+    /*background-color: #fff3cd;*/ /* Light yellow background color */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0.3s ease; /* Smooth transition for hover effects */
+    z-index: 5; /* Ensure it is above other elements */
+    position: relative; /* To make z-index work */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.2); /* Intensify the shadow on hover */
+    z-index: 10; /* Bring the card to the front on hover */
+}
+
+
 /*body{
     font-family:Algerian;
 }*/

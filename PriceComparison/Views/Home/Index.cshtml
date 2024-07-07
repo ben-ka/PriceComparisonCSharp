@@ -1,20 +1,20 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - My ASP.NET Core Application</title>
+    <title>@ViewData["Title"] - השוואת מחירי ביטוח</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="Styles/Style.css" />
     <!-- Add any additional CSS files or styles here -->
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to My ASP.NET Core Application</h1>
-        <p>This is a simple ASP.NET Core application using Bootstrap.</p>
+        <br />
+        <br/>
+        <br />
+
     </div>
 
     <div class="container-fluid">
@@ -26,12 +26,23 @@
                         <div class="card h-100">
                             <img src="Resources/Images/pheonix.jpg" class="card-img-top img-fluid img-thumbnail" alt="pheonix logo">
                             <div class="card-body">
-                                <h5 class="card-title" id="fxPrice">0 $</h5>
+                                <h5 class="card-title" id="fxPrice">50 $</h5>
                                 <a href="https://online.fnx.co.il/Travel/landing.html?fnx_ANum=rGM%200e3sjlk%3D&referrer=" class="btn btn-primary container">לרכישה</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6 col-12 mb-4">
+
+                    <div class="col-md-4 col-sm-6 col-12 mb-4 standout-card">
+                        <div class="card h-100 standout-card">
+                            <img src="Resources/Images/pasportCard.png" class="card-img-top img-fluid img-thumbnail" alt="pasport card logo">
+                            <div class="card-body">
+                                <h5 class="card-title" id="pasportCard-price">30 $</h5>
+                                <a href="https://purchase.passportcard.co.il/existing?AffiliateId=H%2Fam7gNUDWV%2FEn4PyA0DpA%3D%3D" class="btn btn-primary container">לרכישה</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    @* <div class="col-md-4 col-sm-6 col-12 mb-4">
                         <div class="card h-100">
                             <img src="Resources/Images/Nmigdal.png" class="card-img-top img-fluid img-thumbnail" alt="migdal logo">
                             <div class="card-body">
@@ -48,12 +59,12 @@
                                 <a href="https://www.menoramivt.co.il/top-travel/?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJib2R5IjoiZDliYjVlYTVlY2Y4YTY5MDZmYzBkZTY5ZDMxOWQyOGI6MmRmMWZmZTdjYmRlNGRjYjVhZTI3ZmI2NjgwZThlZjY5NThiYmRjYzIxOTdmNjQ2NTZmZDBmMTg4YzU0Yjk5ZmJmYTg1ZWI4MzAzNTYxZmFjNWM4YTI0NDE2MzA3NmQ3MmFiYzZkMDlhZWJlYzg5ZWNlMTBlYjBiZGE0M2QyNGU5MWNmMDY4YjZmYmY4OGQ5MTYwZmU5ODk0YmFmOTNmODUzYmIyMjZlODQ1MTQ0NzZlYWFlNWM4MzI1YTU3ZGU5YTUzNzQ0ZGY3NzdjODkxNTQ4ZGRjMjg4NmEzZDVmNWFkZDk4NWQxZTJjMGJhNDQxNmE2MjY3NjQ5NTQ1ZTJmZmFlMmNlOGE2YzMyMDViM2UwOWUxYTE0Y2FkMTZlMjFjYzBmOTcwN2RjOTQzNWNiZDEwODljZmM5ZGUyODIxYmVjYzhiN2UxNjQ2MGFmYWI4MzYyM2U3OGRlODgxMDJmZTQyN2Q2ZmEyY2I5ODdhMzNiYWU4OWFkNWUzNTBmNmVlYjQzMmQxNDcwMmJhNDhmZmRmMWFjNDk3NjQyYjEwYzJhZWJiZGZiYmI3ZGEwZGUyNGY4ZmE0ZDgyNDlmNTg0NCIsInRva2VuSWQiOiI3M2VlZjkzMC0yYmRlLTExZWYtYThiMi0zZjhhNTBlZDg4NWIiLCJpYXQiOjE3MTg1NDE5ODksImV4cCI6MTcxODYyODM4OSwiaXNzIjoibWVub3JhIG1pdnRhaGltIn0.QMGm-Ql50vyEsHuUEXwsdxYzE8I3yHi3hG-T-n14ZaHaQuSzWjfBJkos-eG8xl3cB151zoVM6-R4KK2ZwhO4JA&t=Pq7FO_ve" class="btn btn-primary container">לרכישה</a>
                             </div>
                         </div>
-                    </div>
+                    </div> *@
                     <div class="col-md-4 col-sm-6 col-12 mb-4">
                         <div class="card h-100">
                             <img src="Resources/Images/harel.webp" class="card-img-top img-fluid img-thumbnail" alt="harel logo">
                             <div class="card-body">
-                                <h5 class="card-title">0 $</h5>
+                                <h5 class="card-title" id="harel-price">45 $</h5>
                                 <a href="https://digital.harel-group.co.il/travel-policy/?guid=533c4676-d81b-4701-a647-2e9f1ea8802d" class="btn btn-primary container">לרכישה</a>
                             </div>
                         </div>
@@ -66,7 +77,7 @@
             <div class="col-md-6">
                 <!-- Row to align number input and datalist horizontally -->
                 <div class="row align-items-end mb-3">
-                    <div class="col-md-6">
+                    <div class="col-md-6 h-100">
                         <label for="numberInput" class="form-label">מספר ימים בחו"ל</label>
                         <div class="input-group">
                             <input type="number" class="form-control form-control-sm" id="numberInput" value="1" min="1">
@@ -212,7 +223,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- Custom JavaScript file -->
     <script src="Scripts/script.js"></script>
-    <script src="Scripts/carousel.js"></script>
+    <script src="Scripts/prices.js"></script>
+@*     <script src="Scripts/test.js"></script> *@
 
 </body>
 </html>
