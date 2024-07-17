@@ -2,10 +2,10 @@
 {
     public class RequestModel
     {
-        public int daysAbroad { get; set; }
+        public int DaysAbroad { get; set; }
 
-        public Locations location { get; set; }
+        public string Destination { get; set; }
 
-        public List<PersonModel> passengers { get; set; }
+        public List<PersonModel> Passengers { get; set; } = new List<PersonModel>();
     }
 }

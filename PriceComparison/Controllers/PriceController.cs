@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace PriceComparison.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("/api/[controller]")]
     public class PricesController : ControllerBase
     {
         private readonly Prices _priceCalculator;
@@ -16,52 +16,65 @@ namespace PriceComparison.Controllers
             _priceCalculator = new Prices();
         }
 
+        private Locations HebrewToLocation(string location)
+        {
+            Dictionary<string, Locations> locationsMapping = new Dictionary<string, Locations>()
+            {
+                { "אירופה", Locations.Europe },
+                { "ארצות הברית", Locations.USA },
+                { "קנדה", Locations.Canada },
+                { "אסיה", Locations.Asia },
+                { "מרכז אמריקה", Locations.CentralAmerica },
+                { "דרום אמריקה", Locations.SouthAmerica },
+                { "אוסטרליה", Locations.Australia },
+                { "אפריקה", Locations.Africa }
+            };
+
+            if (locationsMapping.ContainsKey(location))
+            {
+                return locationsMapping[location];
+            }
+            return Locations.None;
+        }
+
         [HttpPost("calculate")]
-        public IActionResult CalculatePrices([FromBody] PriceRequestModel request)
+        public IActionResult CalculatePrices([FromBody] RequestModel request)
         {
             try
             {
-                var prices = new List<decimal>();
-                var location = (Locations)Enum.Parse(typeof(Locations), request.Destination);
+                if (request == null || !ModelState.IsValid)
+                {
+                    return BadRequest("Invalid request data");
+                }
+
+                Locations destination = HebrewToLocation(request.Destination);
+                if (destination == Locations.None)
+                {
+                    return BadRequest("Invalid destination");
+                }
+
+                Dictionary<Companies, decimal> companyPrices = new Dictionary<Companies, decimal>();
+
+                foreach (Companies company in Enum.GetValues(typeof(Companies)))
+                {
+                    companyPrices[company] = 0;
+                }
 
                 foreach (var passenger in request.Passengers)
                 {
-                    var covers = new List<InsuranceCovers>();
-                    foreach (var cover in passenger.Covers)
+                    foreach (Companies company in Enum.GetValues(typeof(Companies)))
                     {
-                        covers.Add((InsuranceCovers)Enum.Parse(typeof(InsuranceCovers), cover));
+                        decimal totalPrice = _priceCalculator.CalculatePrice(passenger, company, destination);
+                        companyPrices[company] += (totalPrice * request.DaysAbroad); // Assuming price is per day
                     }
-
-                    var personModel = _priceCalculator.CreateModel(covers, location, passenger.Age);
-                    decimal totalPrice = 0;
-
-                    foreach (var cover in covers)
-                    {
-                        totalPrice += _priceCalculator.CalculatePrice(personModel, cover, Companies.Harel); // Replace with actual company
-                    }
-
-                    prices.Add(totalPrice * request.NumberInput); // Assuming price is per day
                 }
 
-                return Ok(prices);
+                return Ok(companyPrices);
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
         }
-    }
-
-    public class PriceRequestModel
-    {
-        public int NumberInput { get; set; }
-        public string Destination { get; set; }
-        public List<PassengerModel> Passengers { get; set; }
-    }
-
-    public class PassengerModel
-    {
-        public int Age { get; set; }
-        public List<string> Covers { get; set; }
     }
 }

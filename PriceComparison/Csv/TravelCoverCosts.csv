@@ -1,7 +1,4 @@
-TravelCoverCosts,,,,,,,,,,,0.4
-,,,,,,,,,,,
 ID,CompanyID,CoverID,Age_from,Age_to,DestinationIDFrom,DestinationIDTo,PricePerDay,MaxPrice,מעל 30 יום,עד 14 ימים,
-,,,,,,,,,,,
 1,2,1,0,60,1,4,2.8,,,,
 2,2,1,61,65,1,4,4.8,,,,
 3,2,1,66,70,1,4,7.8,,,,

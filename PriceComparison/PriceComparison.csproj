@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Csv\TravelCoverCosts.csv" />
+    <Content Include="Csv\TravelAboardInsuranceCompnies.csv" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\Resources\Images\pheonix.jpg" />
     <None Include="wwwroot\Resources\Images\phIcon.png" />
     <None Include="wwwroot\Scripts\script.js" />

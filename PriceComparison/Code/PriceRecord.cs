@@ -2,8 +2,6 @@
 {
     public class PriceRecord
     {
-        public int Id {  get; set; }
-
         public int CompanyId {  get; set; }
         public int CoverId { get; set; }
 

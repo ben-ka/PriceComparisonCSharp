@@ -10,6 +10,7 @@
         SouthAmerica = 6,
         Australia = 7,
         Africa = 8,
+        None = 9
     }
 
     public enum Companies
@@ -18,8 +19,6 @@
         Phenix = 2,
         CardPassport = 3,
         Harel = 4,
-        Menora = 5,
-
     }
 
     public enum InsuranceCovers
