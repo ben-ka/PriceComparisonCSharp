@@ -2,12 +2,12 @@
 {
     public enum Locations
     {
-        Europe = 1,
-        USA = 2,
-        Canada = 3,
-        Asia = 4,
-        CentralAmerica = 5,
-        SouthAmerica = 6,
+        Europe = 5,
+        USA = 1,
+        Canada = 4,
+        Asia = 6,
+        CentralAmerica = 2,
+        SouthAmerica = 3,
         Australia = 7,
         Africa = 8,
         None = 9

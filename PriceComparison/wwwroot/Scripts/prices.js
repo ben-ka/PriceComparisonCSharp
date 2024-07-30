@@ -1,4 +1,18 @@
-﻿async function submitFormData() {
+﻿function checkInput() {
+    var numberInputElement = document.getElementById('numberInput');
+    var numberInputValue = parseInt(numberInputElement.value);
+
+    if (numberInputValue > 180) {
+        numberInputElement.value = 180;
+    }
+    if (numberInputValue < 0) {
+        numberInputElement.value = 0;
+    }
+}
+
+document.getElementById('numberInput').addEventListener('change', checkInput);
+
+async function submitFormData() {
     const forms = document.querySelectorAll('#formsContainer .form-container');
     const numberInput = parseInt(document.getElementById('numberInput').value);  // Ensure this is an integer
     const destination = document.getElementById('exampleDataList').value;
@@ -14,7 +28,7 @@
         Destination: destination,
         Passengers: passengers
     };
-    console.log(requestData);
+    
 
     try {
         const response = await fetch('/api/Prices/calculate', {
@@ -31,7 +45,7 @@
         }
 
         const prices = await response.json();
-        console.log(prices);
+        
 
         // Assuming the company enum values match the card IDs in the format 'company{EnumValue}Card'
         for (const [company, price] of Object.entries(prices)) {
@@ -65,7 +79,8 @@ document.getElementById('addFormButton').addEventListener('click', function () {
     const checkboxes = newForm.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach((checkbox, index) => {
         if (index === 0) {
-            checkbox.checked = true; // Check the first checkbox
+            checkbox.checked = true;
+            checkbox.disabled = true;// Check the first checkbox
         } else {
             checkbox.checked = false; // Uncheck all other checkboxes
         }
@@ -73,6 +88,7 @@ document.getElementById('addFormButton').addEventListener('click', function () {
 
     newForm.querySelectorAll('input[type="number"]').forEach(input => {
         input.value = '30';
+        
     });
 
     const deleteButton = newForm.querySelector('.btn-warning');
@@ -102,6 +118,7 @@ function addEventListenersToForm(form) {
     form.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
         checkbox.addEventListener('change', submitFormData);
     });
+
 }
 
 function updatePassengerNumbers() {
@@ -116,4 +133,9 @@ function updatePassengerNumbers() {
 document.querySelectorAll('#formsContainer .form-container').forEach(form => {
     addEventListenersToForm(form);
 });
+
+
+
+
+
 

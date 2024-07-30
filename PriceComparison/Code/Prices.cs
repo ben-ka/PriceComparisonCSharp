@@ -41,15 +41,11 @@ namespace PriceComparison.Code
             {
                 csv.Context.RegisterClassMap<PriceRecordMap>(); // Register the class map
                 List<PriceRecord> records = csv.GetRecords<PriceRecord>().ToList();
-                foreach (var record in records)
-                {
-                    
-                }
                 return records;
             }
         }
 
-        public decimal CalculatePrice(PersonModel model, Companies company, Locations location)
+        public decimal CalculatePrice(PersonModel model, Companies company, Locations location, int days)
         {
             List<PriceRecord> records = ParseCsv();
             decimal price = 0;
@@ -73,9 +69,28 @@ namespace PriceComparison.Code
                     return ageMatch && coverMatch && destinationMatch && companyMatch;
                 }).ToList();
 
+                
                 if (query.Count > 0)
                 {
-                    price += query[0].PricePerDay;
+                    PriceRecord priceRecord = query[0];
+                    decimal normalPrice = query[0].PricePerDay * days;
+
+                    if (priceRecord.OverThirteeDaysPrice.HasValue && days > 30)
+                    {
+                        normalPrice = priceRecord.OverThirteeDaysPrice.Value * days;
+                    }
+                    else if (priceRecord.UnderFourteenDaysPrice.HasValue && days < 14)
+                    {
+                        normalPrice = priceRecord.UnderFourteenDaysPrice.Value * days;
+                    }
+
+                    if (priceRecord.MaxPrice.HasValue && priceRecord.MaxPrice.Value < normalPrice)
+                    {
+                        normalPrice = priceRecord.MaxPrice.Value;
+                    }
+
+
+                    price += normalPrice;
                 }
                 else
                 {

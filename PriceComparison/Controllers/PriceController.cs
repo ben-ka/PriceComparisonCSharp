@@ -62,10 +62,11 @@ namespace PriceComparison.Controllers
 
                 foreach (var passenger in request.Passengers)
                 {
+                    
                     foreach (Companies company in Enum.GetValues(typeof(Companies)))
                     {
-                        decimal totalPrice = _priceCalculator.CalculatePrice(passenger, company, destination);
-                        companyPrices[company] += (totalPrice * request.DaysAbroad); // Assuming price is per day
+                        decimal totalPrice = _priceCalculator.CalculatePrice(passenger, company, destination, request.DaysAbroad);
+                        companyPrices[company] += (totalPrice); 
                     }
                 }
 

@@ -1,5 +1,77 @@
 ﻿body {
     font-family: Arial, sans-serif;
+    text-align: right;
+    background-image: url('../Resources/Images/desktop-bg1.png');
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    height: 100%;
+    background-attachment: fixed; /* Keeps the background image fixed in place */
+    margin: 0; /* Ensures there is no margin around the body */
+}
+
+html {
+    height: 100%;
+    margin: 0; /* Ensures there is no margin around the html */
+}
+
+.header-container {
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    background-color: #0F0B45; /* dark background color */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+    .header-container h1 {
+        font-family: 'Arial', sans-serif; /* Change this to a font that matches your design */
+        font-size: 2em; /* Adjust the font size as needed */
+        color: #ddd; /* Text color */
+        margin: 0; /* Remove default margin */
+    }
+
+@media (max-width: 768px) {
+    .header-container h1 {
+        font-size: 1.5em; /* Smaller font size for mobile */
+    }
+}
+
+.secondary-header-container {
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+    .secondary-header-container h2 {
+        font-family: 'Arial', sans-serif; /* Change this to a font that matches your design */
+        font-size: 1.5em; /* Adjust the font size as needed */
+        color: #f8f9fa; /* Text color */
+        margin: 0; /* Remove default margin */
+    }
+
+@media (max-width: 1200px) {
+    body {
+        background-image: url('../Resources/Images/mobile-bg1.png?v=1'); /* Change to your mobile background image */
+        background-attachment: fixed; /* Keeps the background image fixed in place */
+        background-size: cover; /* Ensures the image covers the entire background */
+        background-position: top center; /* Centers the image */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        margin: 0; /* Ensures there is no margin around the body */
+    }
+
+    .secondary-header-container h2 {
+        font-size: 1em; /* Smaller font size for mobile */
+    }
+}
+
+@media (min-width: 1580px) {
+    .custom-col-2 {
+        flex: 0 0 16.666667%; /* equivalent to col-2 width in Bootstrap */
+        max-width: 16.666667%;
+    }
 }
 
 .form-container {
@@ -28,6 +100,12 @@
     color: #000;
 }
 
+.logo {
+    max-width: 200px; /* Adjust this value as needed */
+    width: 100%; /* Ensure the logo scales down */
+    height: auto; /* Maintain aspect ratio */
+}
+
 .standout-card {
     /* border: 2px solid #ffc107; */ /* Gold border to make it stand out */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /*Add a shadow */
@@ -42,50 +120,3 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.2); /* Intensify the shadow on hover */
     z-index: 10; /* Bring the card to the front on hover */
 }
-
-
-
-/*body{
-    font-family:Algerian;
-}*/
-
-
-/*.form-check-label {
-    margin-left: 5px;
-}
-
-.form-label {
-    display: block;
-    text-align: right;
-}
-
-#age {
-    text-align: right;
-}
-
-.btn-warning {
-    background-color: #ffc107;
-    border-color: #ffc107;
-    color: #000;
-}
-
-.carousel-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    background-color: #007bff;*/ /* Change background color */
-    /*color: #ff0fff;*/ /* Change text color */
-    /*border: none;*/ /* Remove border if needed */
-    /* Add any additional styling here */
-/*}*/
-
-/* Customize carousel control icons */
-/*.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-color: #ff0fff;*/ /* Change icon color */
-    /* You may need to customize the icon appearance further */
-/*}*/
