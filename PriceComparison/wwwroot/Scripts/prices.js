@@ -1,4 +1,7 @@
-﻿function checkInput() {
+﻿
+
+
+function checkInput() {
     var numberInputElement = document.getElementById('numberInput');
     var numberInputValue = parseInt(numberInputElement.value);
 
@@ -11,6 +14,14 @@
 }
 
 document.getElementById('numberInput').addEventListener('change', checkInput);
+
+
+
+
+
+
+
+
 
 async function submitFormData() {
     const forms = document.querySelectorAll('#formsContainer .form-container');
@@ -49,7 +60,6 @@ async function submitFormData() {
 
         // Assuming the company enum values match the card IDs in the format 'company{EnumValue}Card'
         for (const [company, price] of Object.entries(prices)) {
-            console.log(company);
             const cardTitle = document.getElementById(`${company}`);
             if (cardTitle) {
                 cardTitle.textContent = `${price} $`;
@@ -133,6 +143,66 @@ function updatePassengerNumbers() {
 document.querySelectorAll('#formsContainer .form-container').forEach(form => {
     addEventListenersToForm(form);
 });
+
+
+async function recordLinkClick(company, passengerNum, amountOfDays, price, location) {
+    console.log(`hello ${company}`);
+    try {
+        // Prepare the data to be sent
+        const data = {
+            Company: company,
+            PassengerNum: passengerNum,
+            AmountOfDays: amountOfDays,
+            Price: price,
+            Location: location
+
+        };
+
+        // Send the data using the Fetch API
+        const response = await fetch('/api/LinkClick/AddRecord', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        // Check if the request was successful
+        if (!response.ok) {
+            console.error('Failed to log link click:', response.statusText);
+        } else {
+            console.log('Link click logged successfully');
+        }
+    } catch (error) {
+        console.error('Error logging link click:', error);
+    }
+}
+function addLinkClickListeners() {
+
+    //amount of passengers
+    const formsContainer = document.getElementById('formsContainer');
+    
+
+
+    const links = document.querySelectorAll('.btn-primary.container');
+    links.forEach(link => {
+        link.addEventListener('click', function () {
+            const company = this.getAttribute('name');
+            const priceElement = this.parentElement.querySelector('.card-title');
+            const price = priceElement ? priceElement.textContent.replace('$', '').trim() : 0;
+            
+            recordLinkClick(company, formsContainer.children.length, parseInt(document.getElementById('numberInput').value), price, document.getElementById('exampleDataList').value);
+
+        });
+    });
+}
+
+// Ensure the DOM is fully loaded before adding event listeners
+document.addEventListener('DOMContentLoaded', function () {
+    addLinkClickListeners();
+});
+
+
 
 
 
