@@ -120,3 +120,7 @@ html {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.2); /* Intensify the shadow on hover */
     z-index: 10; /* Bring the card to the front on hover */
 }
+
+.card-title{
+    text-align: right;
+}

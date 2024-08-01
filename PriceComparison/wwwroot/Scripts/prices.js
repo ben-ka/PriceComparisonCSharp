@@ -1,6 +1,5 @@
 ﻿
 
-
 function checkInput() {
     var numberInputElement = document.getElementById('numberInput');
     var numberInputValue = parseInt(numberInputElement.value);
@@ -16,17 +15,10 @@ function checkInput() {
 document.getElementById('numberInput').addEventListener('change', checkInput);
 
 
-
-
-
-
-
-
-
 async function submitFormData() {
     const forms = document.querySelectorAll('#formsContainer .form-container');
     const numberInput = parseInt(document.getElementById('numberInput').value);  // Ensure this is an integer
-    const destination = document.getElementById('exampleDataList').value;
+    const destination = document.getElementById('destinationSelect').value;
 
     const passengers = Array.from(forms).map(form => {
         const age = parseInt(form.querySelector('input[type="number"]').value);  // Ensure this is an integer
@@ -39,7 +31,6 @@ async function submitFormData() {
         Destination: destination,
         Passengers: passengers
     };
-    
 
     try {
         const response = await fetch('/api/Prices/calculate', {
@@ -56,13 +47,12 @@ async function submitFormData() {
         }
 
         const prices = await response.json();
-        
 
-        // Assuming the company enum values match the card IDs in the format 'company{EnumValue}Card'
         for (const [company, price] of Object.entries(prices)) {
             const cardTitle = document.getElementById(`${company}`);
             if (cardTitle) {
-                cardTitle.textContent = `${price} $`;
+                const numPassengers = passengers.length;
+                cardTitle.innerHTML = `${price}$<br>ימים ${numberInput}<br>נוסעים ${numPassengers}`;
             } else {
                 console.warn(`No card found for company: ${company}`);
             }
@@ -71,6 +61,7 @@ async function submitFormData() {
         console.error('Error fetching prices:', error);
     }
 }
+
 
 document.getElementById('addFormButton').addEventListener('click', function () {
     const originalForm = document.getElementById('form');
@@ -119,7 +110,7 @@ document.getElementById('addFormButton').addEventListener('click', function () {
 });
 
 document.getElementById('numberInput').addEventListener('change', submitFormData);
-document.getElementById('exampleDataList').addEventListener('change', submitFormData);
+document.getElementById('destinationSelect').addEventListener('change', submitFormData);
 
 function addEventListenersToForm(form) {
     form.querySelectorAll('input[type="number"]').forEach(input => {
@@ -146,7 +137,6 @@ document.querySelectorAll('#formsContainer .form-container').forEach(form => {
 
 
 async function recordLinkClick(company, passengerNum, amountOfDays, price, location) {
-    console.log(`hello ${company}`);
     try {
         // Prepare the data to be sent
         const data = {
@@ -191,7 +181,7 @@ function addLinkClickListeners() {
             const priceElement = this.parentElement.querySelector('.card-title');
             const price = priceElement ? priceElement.textContent.replace('$', '').trim() : 0;
             
-            recordLinkClick(company, formsContainer.children.length, parseInt(document.getElementById('numberInput').value), price, document.getElementById('exampleDataList').value);
+            recordLinkClick(company, formsContainer.children.length, parseInt(document.getElementById('numberInput').value), price, document.getElementById('destinationSelect').value);
 
         });
     });
