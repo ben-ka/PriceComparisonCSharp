@@ -147,6 +147,7 @@ async function recordLinkClick(company, passengerNum, amountOfDays, price, locat
             Location: location
 
         };
+        
 
         // Send the data using the Fetch API
         const response = await fetch('/api/LinkClick/AddRecord', {
@@ -168,26 +169,31 @@ async function recordLinkClick(company, passengerNum, amountOfDays, price, locat
     }
 }
 function addLinkClickListeners() {
-
-    //amount of passengers
+    // Amount of passengers
     const formsContainer = document.getElementById('formsContainer');
-    
-
 
     const links = document.querySelectorAll('.btn-primary.container');
     links.forEach(link => {
         link.addEventListener('click', function () {
             const company = this.getAttribute('name');
             const priceElement = this.parentElement.querySelector('.card-title');
-            const price = priceElement ? priceElement.textContent.replace('$', '').trim() : 0;
-            
-            recordLinkClick(company, formsContainer.children.length, parseInt(document.getElementById('numberInput').value), price, document.getElementById('destinationSelect').value);
 
+            // Extract the price from the first line of the card title
+            const priceLine = priceElement ? priceElement.innerHTML.split('<br>')[0] : '0$';
+            const price = parseFloat(priceLine.replace('$', '').trim());
+
+           
+
+            recordLinkClick(
+                company,
+                formsContainer.children.length,
+                parseInt(document.getElementById('numberInput').value),
+                price,
+                document.getElementById('destinationSelect').value
+            );
         });
     });
-}
-
-// Ensure the DOM is fully loaded before adding event listeners
+}// Ensure the DOM is fully loaded before adding event listeners
 document.addEventListener('DOMContentLoaded', function () {
     addLinkClickListeners();
 });
