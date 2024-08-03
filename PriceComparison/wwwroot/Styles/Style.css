@@ -121,6 +121,10 @@ html {
     z-index: 10; /* Bring the card to the front on hover */
 }
 
+<<<<<<< HEAD
 .card-title {
+=======
+.card-title{
+>>>>>>> b0908f62958bdfd9832739f35587e3aa8f51087c
     text-align: right;
 }
