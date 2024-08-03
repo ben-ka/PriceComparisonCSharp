@@ -16,17 +16,10 @@ function checkInput() {
 document.getElementById('numberInput').addEventListener('change', checkInput);
 
 
-
-
-
-
-
-
-
 async function submitFormData() {
     const forms = document.querySelectorAll('#formsContainer .form-container');
     const numberInput = parseInt(document.getElementById('numberInput').value);  // Ensure this is an integer
-    const destination = document.getElementById('exampleDataList').value;
+    const destination = document.getElementById('destinationSelect').value;
 
     const passengers = Array.from(forms).map(form => {
         const age = parseInt(form.querySelector('input[type="number"]').value);  // Ensure this is an integer
@@ -39,7 +32,6 @@ async function submitFormData() {
         Destination: destination,
         Passengers: passengers
     };
-    
 
     try {
         const response = await fetch('/api/Prices/calculate', {
@@ -56,13 +48,12 @@ async function submitFormData() {
         }
 
         const prices = await response.json();
-        
 
-        // Assuming the company enum values match the card IDs in the format 'company{EnumValue}Card'
         for (const [company, price] of Object.entries(prices)) {
             const cardTitle = document.getElementById(`${company}`);
             if (cardTitle) {
-                cardTitle.textContent = `${price} $`;
+                const numPassengers = passengers.length;
+                cardTitle.innerHTML = `${price}$<br>&#x202B;${numberInput} ימים&#x202C;<br>&#x202B;${numPassengers} נוסעים&#x202C;`;
             } else {
                 console.warn(`No card found for company: ${company}`);
             }
@@ -71,6 +62,7 @@ async function submitFormData() {
         console.error('Error fetching prices:', error);
     }
 }
+
 
 document.getElementById('addFormButton').addEventListener('click', function () {
     const originalForm = document.getElementById('form');
@@ -98,7 +90,7 @@ document.getElementById('addFormButton').addEventListener('click', function () {
 
     newForm.querySelectorAll('input[type="number"]').forEach(input => {
         input.value = '30';
-        
+
     });
 
     const deleteButton = newForm.querySelector('.btn-warning');
@@ -119,7 +111,7 @@ document.getElementById('addFormButton').addEventListener('click', function () {
 });
 
 document.getElementById('numberInput').addEventListener('change', submitFormData);
-document.getElementById('exampleDataList').addEventListener('change', submitFormData);
+document.getElementById('destinationSelect').addEventListener('change', submitFormData);
 
 function addEventListenersToForm(form) {
     form.querySelectorAll('input[type="number"]').forEach(input => {
@@ -146,7 +138,6 @@ document.querySelectorAll('#formsContainer .form-container').forEach(form => {
 
 
 async function recordLinkClick(company, passengerNum, amountOfDays, price, location) {
-    console.log(`hello ${company}`);
     try {
         // Prepare the data to be sent
         const data = {
@@ -157,6 +148,7 @@ async function recordLinkClick(company, passengerNum, amountOfDays, price, locat
             Location: location
 
         };
+
 
         // Send the data using the Fetch API
         const response = await fetch('/api/LinkClick/AddRecord', {
@@ -178,34 +170,31 @@ async function recordLinkClick(company, passengerNum, amountOfDays, price, locat
     }
 }
 function addLinkClickListeners() {
-
-    //amount of passengers
+    // Amount of passengers
     const formsContainer = document.getElementById('formsContainer');
-    
-
 
     const links = document.querySelectorAll('.btn-primary.container');
     links.forEach(link => {
         link.addEventListener('click', function () {
             const company = this.getAttribute('name');
             const priceElement = this.parentElement.querySelector('.card-title');
-            const price = priceElement ? priceElement.textContent.replace('$', '').trim() : 0;
-            
-            recordLinkClick(company, formsContainer.children.length, parseInt(document.getElementById('numberInput').value), price, document.getElementById('exampleDataList').value);
 
+            // Extract the price from the first line of the card title
+            const priceLine = priceElement ? priceElement.innerHTML.split('<br>')[0] : '0$';
+            const price = parseFloat(priceLine.replace('$', '').trim());
+
+
+
+            recordLinkClick(
+                company,
+                formsContainer.children.length,
+                parseInt(document.getElementById('numberInput').value),
+                price,
+                document.getElementById('destinationSelect').value
+            );
         });
     });
-}
-
-// Ensure the DOM is fully loaded before adding event listeners
+}// Ensure the DOM is fully loaded before adding event listeners
 document.addEventListener('DOMContentLoaded', function () {
     addLinkClickListeners();
 });
-
-
-
-
-
-
-
-
