@@ -51,9 +51,44 @@ async function submitFormData() {
 
         for (const [company, price] of Object.entries(prices)) {
             const cardTitle = document.getElementById(`${company}`);
+            const cardDays = document.getElementById(`${company}Days`)
+            const cardPassengers = document.getElementById(`${company}Passengers`)
+            const cardPerDay = document.getElementById(`${company}PerDay`)
             if (cardTitle) {
                 const numPassengers = passengers.length;
-                cardTitle.innerHTML = `${price}$<br>&#x202B;${numberInput} ימים&#x202C;<br>&#x202B;${numPassengers} נוסעים&#x202C;`;
+                const dailyPrice = (price / numberInput).toFixed(2); // Calculate daily price
+                let daysContent = ''
+                if (numberInput == 1) {
+                    daysContent = 'יום 1'
+                }
+                else {
+                    daysContent = `&#x202B;${numberInput} ימים&#x202C;`
+                }
+                cardDays.innerHTML = daysContent
+
+                let passengersContent = ''
+                if (numPassengers == 1) {
+                    passengersContent = 'נוסע 1'
+                }
+                else {
+                    passengersContent = `&#x202B;${numPassengers} נוסעים&#x202C;`
+                }
+                cardPassengers.innerHTML = passengersContent
+
+                let perDayContent = ''
+                
+                perDayContent = `${dailyPrice}$ ליום בממוצע`
+                
+                cardPerDay.innerHTML = perDayContent
+               
+
+
+
+
+                let content = '';
+                content = `${price}$`;
+               
+                cardTitle.innerHTML = content;
             } else {
                 console.warn(`No card found for company: ${company}`);
             }
