@@ -208,28 +208,33 @@ function addLinkClickListeners() {
     // Amount of passengers
     const formsContainer = document.getElementById('formsContainer');
 
+    // Get all buttons with the 'btn-primary container' class
     const links = document.querySelectorAll('.btn-primary.container');
+
     links.forEach(link => {
         link.addEventListener('click', function () {
+            // Get the company name from the 'name' attribute of the link
             const company = this.getAttribute('name');
-            const priceElement = this.parentElement.querySelector('.card-title');
 
-            // Extract the price from the first line of the card title
-            const priceLine = priceElement ? priceElement.innerHTML.split('<br>')[0] : '0$';
+            // Find the price element in the card ('.priceTag h2')
+            const priceElement = this.closest('.card').querySelector('.priceTag h2');
+
+            // Extract the price from the text (removing the '$' and any extra spaces)
+            const priceLine = priceElement ? priceElement.textContent : '0$';
             const price = parseFloat(priceLine.replace('$', '').trim());
 
-
-
+            // Call the recordLinkClick function with updated parameters
             recordLinkClick(
                 company,
-                formsContainer.children.length,
-                parseInt(document.getElementById('numberInput').value),
-                price,
-                document.getElementById('destinationSelect').value
+                formsContainer.children.length, // Amount of forms (passengers)
+                parseInt(document.getElementById('numberInput').value), // Value from number input
+                price, // The extracted price
+                document.getElementById('destinationSelect').value // Selected destination
             );
         });
     });
-}// Ensure the DOM is fully loaded before adding event listeners
+}
+// Ensure the DOM is fully loaded before adding event listeners
 document.addEventListener('DOMContentLoaded', function () {
     addLinkClickListeners();
 });

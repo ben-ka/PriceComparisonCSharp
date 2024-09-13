@@ -14,6 +14,7 @@ html {
     height: 100%;
     margin: 0; /* Ensures there is no margin around the html */
     font-family: "Open Sans Condensed";
+    scroll-behavior: smooth;
 }
 
 .header-container {
@@ -82,7 +83,11 @@ html {
     background-color: #ffffff;
 
 }
-
+/*
+.company-card{
+    max-height: 30rem;
+}
+*/
 .form-check-label {
     margin-left: 5px;
 }
@@ -200,6 +205,32 @@ body {
         color: white;
     }
 
+#headerButtons{
+    align-content: center;
+    margin-bottom : 3rem;
+
+}
+
+#headerSubtitle1 {
+    color: #FFF;
+    text-align: right;
+    font-family: "Open Sans Condensed";
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 2.25rem; /* 112.5% */
+
+}
+
+#headerSubtitle2 {
+    color: #FFF;
+    font-family: "Open Sans Condensed";
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2.25rem;
+}
+
 .nav-link {
     color: white;
     font-size: 1.5625rem;
@@ -241,7 +272,7 @@ body {
 }
 
 #addFormButton{
-    margin-right: 3.5rem;
+    text-align: center;
 }
 
 .card-title {
@@ -316,7 +347,8 @@ body {
 }
 
 #marketing-row{
-    margin-bottom: 15rem;
+    margin-bottom: 8rem;
+    margin-top : 5rem;
 }
 
 #navbarItems {
@@ -343,7 +375,6 @@ body {
 
 #FirstTitle {
     color: #FFF;
-    text-align: right;
     font-family: "Open Sans Condensed";
     font-size: 5.375rem;
     font-style: normal;
@@ -377,8 +408,7 @@ body {
     text-align: right;
     font-family: "Open Sans Condensed";
     font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1.2; /* Adjust line-height to fit price properly */
+    font-weight: 700; /* Adjust line-height to fit price properly */
     color: #0C0C0C;
     margin-bottom: 1rem; /* Add margin at the bottom to prevent overlap with button */
 }
@@ -405,9 +435,20 @@ body {
     line-height: 2.25rem; /* 163.636% */
 }
 
-#marketing-row,
+
 #right-img-bg {
     margin: 0;
     padding: 0;
 }
+
+/* Ensure the parent column is positioned relatively */
+#right-img-bg {
+    position: relative;
+}
+
+#mainDesciption{
+    text-align: center;
+    margin-top: 5rem;
+}
+
 

@@ -32,10 +32,10 @@
 
 <body>
    <div class="container-fluid">
-        <div class="row h-100">
-            <div class="col-md-6" id="right-img-bg">
+        <div class="row h-100 g-0" id="headerRow" style="position: relative;">
+            <div class="col-md-8 g-0" id="right-img-bg">
                 <div class="row align-items-center">
-                    <div id="navbarItems">
+                    @* <div id="navbarItems">
                         <ul class="nav justify-content-right">
                             <li class="nav-item">
                                 <a class="nav-link active" href="#">דף הבית</a>
@@ -50,66 +50,87 @@
                                 <a class="nav-link" href="#">יצירת קשר</a>
                             </li>
                         </ul>
-                    </div>
-                    
+                    </div> *@
+
                     <!-- Text Section -->
-                    <div class="col-12">
+                    <div class="col-12" id="mainDesciption">
                         <h2>
                             <span class="section-title" id="FirstTitle">  ביטוח נסיעות לחו"ל עושים עם </span>
+                            <br />
                             <span class="section-subtitle" id="nameTitle">  ידע שווה כסף</span>
                         </h2>
-                        
+                        <br />
+
                         <p class="description">
-                            כמו תמיד דאגנו לכם לביטוח המותאם והטוב ביותר עבורכם, לצרכים שלכם, ומובן - במחיר המשתלם ביותר.<br /> רק לחברי קהילת "ידע שווה כסף"
-                            הצטרפו עכשיו והבטיחו שקט נפשי בכל נסיעה.
+                            <span id="headerSubtitle1">כמו תמיד דאגנו לכם לביטוח המותאם ביותר והטוב ביותר עבורכם, <br />לצרכים שלכם, וכמובן - במחיר המשתלם ביותר.</span>
+                            <br />
+                            <br />
+                            <span id="headerSubtitle2">
+                                רק לחברי קהילת ״ידע שווה כסף״ <br />
+                                הצטרפו עכשיו ותיהנו משקט נפשי בכל נסיעה.
+                            </span>
                         </p>
-                        <a href="#" class="btn btn-custom">השוואת מחירים</a>
-                        <a href="#" class="btn btn-outline-light">ייעוץ חינם</a>
+                        <div id="headerButtons">
+                            
+                            <a href="#scrollCheckpoint" class="btn btn-outline-light btn-lg">השוואת מחירים</a>
+                        </div>
+
                     </div>
                 </div>
-            </div> 
 
-            <div class="col-md-6"> <img class="card-img-top img-fluid img-thumbnail" src="img/01-1.png" />
-                
-                    
                 
             </div>
 
-        </div> 
+            <div class="col-md-4 g-0">
+                <img class="card-img-top img-fluid img-thumbnail" src="Resources/Images/01-1.png" alt="Header Image" />
+            </div>
+@* 
+            <!-- Overlay Image: People Holding Laptop (Only on Desktop) -->
+            <div class="d-none d-lg-block" id="overlayImageWrapper" style="position: absolute; top: 0; left: 12%; transform: translateX(-50%); z-index: 1;">
+                <img src="Resources/Images/peopleHoldingLaptop.png" alt="People holding laptop" class="img-fluid">
+            </div> *@
+        </div>
+
 
         <div class="row h-100" id="marketing-row">
             <div class="container text-center mt-5">
                 <h2 class="section-title" id="whyusTitle">אז למה בעצם לבחור בנו?</h2>
                 <p class="section-description" id="whyUsParagraph">
-                    לורם איפסום דולור סיט אמט, קונסטקטור אדיפיסינג אלית קלורס מופרד אדנום סילקופ. מרגיש ומרגש. עמחליף לורם איפסום דולור סיט אמט, קונסטקטור אדיפיסינג אלית.
-                    סט אלחמקם ניסי נון ניבאגה. קראס אתק קיסו ולמפדה דיאם, וססטיבולום סוליסי טידום בעיליק. לורם איפסום דולור סיט אמט, קונסטקטור אדיפיסינג אלית.
+                    דרך מנוע ההשוואה של ידע שווה כסף תחסכו זמן יקר באיתור ההצעות השונות לביטוח נסיעות לחו"ל והכל נעשה בשקיפות מלאה והצגת כל ההצעות במקום אחד.
+                    
                 </p>
                 <div class="row mt-5">
 
-                    <div class="col-md-4">
+                   
+                        <!-- First column is offset, skipping it -->
+                    <div class="col-md-3"></div>
+
+                    <!-- Price Div in the center -->
+                    <div class="col-md-3 text-right" id="priceDiv">
                         <img src="Resources/Images/Group279.png" alt="Price" class="icon">
                         <h4 class="feature-title secondaryTitle">מחיר</h4>
                         <p class="feature-description WhyUsDescription">
-                            לורם איפסום דולור סיט אמט, קונסטקטור אדיפיסינג אלית קלורס מופרד אדנום סילקופ. מרגיש ומרגש.
+                            ידע שווה כסף, הקהילה הפיננסית הגדולה בישראל עם למעלה מ-250,000 איש חרטה על דגלה לשים את חברי הקהילה במרכז מה שאומר אתם נהנים מהמחירים הטובים ביותר ובזכות הכוח שלנו כקבוצה גדולה.
                         </p>
                     </div>
 
-                    
-                    <div class="col-md-4">
+                    <!-- Service Div in the center, but offset by 3 on the right -->
+                    <div class="col-md-3 offset-md-3 text-left" id="serviceDiv">
                         <img src="Resources/Images/Group280.png" alt="Service" class="icon">
                         <h4 class="feature-title secondaryTitle">שירות</h4>
                         <p class="feature-description WhyUsDescription">
-                            לורם איפסום דולור סיט אמט, קונסטקטור אדיפיסינג אלית קלורס מופרד אדנום סילקופ. מרגיש ומרגש.
+                            בתוך דקות ספורות תוכלו להשוות במספר חברות ביטוח בתהליך דיגיטלי פשוט וקל שבסופו תקבלו את ההצעה המשתלמת ביותר עבורכם.
                         </p>
                     </div>
+                    
 
-                    <div class="col-md-4">
+                    @* <div class="col-md-4">
                         <img src="Resources/Images/Group281.png" alt="Community" class="icon">
                         <h4 class="feature-title secondaryTitle">קהילה</h4>
                         <p class="feature-description WhyUsDescription">
                             לורם איפסום דולור סיט אמט, קונסטקטור אדיפיסינג אלית קלורס מופרד אדנום סילקופ. מרגיש ומרגש.
                         </p>
-                    </div>
+                    </div> *@
                     
                 </div>
             </div>
@@ -117,7 +138,7 @@
         
 
         <div class="row h-100" id="right-img-bg">
-            <div class="container text-center mt-5">
+            <div class="container text-center mt-5" id="scrollCheckpoint">
                 <h2 class="section-title" id="travelHeader">הידע שלנו, ההשוואה שלכם</h2>
                 <p class="section-description" id="travelParagraph">
                     עם הקהילה שלנו, השוואת מחירי ביטוחי טיסות מעולם לא הייתה קלה יותר.
@@ -127,13 +148,19 @@
                 </p>
                 <!-- Row to align number input and datalist horizontally -->
                 <div class="row mb-3" id="globalInputs">
-                    <div class="col-md-6 h-100">
+                    <div class="col-md-4"> </div>
+                   
+                        
+                            
+                        
+                    
+                    <div class="col-md-2 h-100">
                         <label for="numberInput" class="form-label">מספר ימים בחו"ל</label>
                         <div class="input-group">
                             <input type="number" class="form-control form-control-lg" id="numberInput" value="4" min="1" max="180">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-2 offset-md-4">
                         <label for="destinationSelect" class="form-label">לאן טסים</label>
                         <select class="form-control form-control-lg" id="destinationSelect">
                             <option value="אירופה">אירופה</option>
@@ -151,16 +178,19 @@
 
                 </div>
 
-                <div class="text-end mb-3">
+                <div class=" mx-auto col-md-1">
                     <button id="addFormButton" type="button" class="btn btn-primary">הוסף נוסע</button>
                 </div>
 
+                
+
+                
                 <!-- Container to hold multiple forms -->
-                <div id="formsContainer" class="mb-5">
+                <div id="formsContainer" class="mb-5 col-md-6 mx-auto">
                     <!-- Form -->
                     <div class="form-container mb-5" id="form">
                         <form>
-                            <div class="mb-3">
+                            <div class="mb-3 col-md-3">
                                 <label for="age" class="form-label">גיל</label>
                                 <input type="number"
                                        class="form-control form-control-xl"
@@ -253,10 +283,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="row h-100">
-                    <div class="col-md-3 col-6 mb-4">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2 col-6 mb-4 ">
                         <div class="card h-200">
-                            <img src="Resources/Images/pheonix.jpg" class="card-img-top img-fluid img-thumbnail" alt="pheonix logo" loading="lazy">
+                            <img src="Resources/Images/pheonix.jpg" class="card-img-top img-fluid img-thumbnail company-card" alt="pheonix logo" loading="lazy">
                             <div class="card-body">
 
                                 <h6 class="fullPolicyTitle">פירוט ביטוח מלא:</h6>
@@ -274,9 +305,9 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-6 mb-4">
+                    <div class="col-md-2 col-6 mb-4 ">
                         <div class="card h-200">
-                            <img src="Resources/Images/pasportCard.png" class="card-img-top img-fluid img-thumbnail" alt="pasport card logo" loading="lazy">
+                            <img src="Resources/Images/pasportCard.png" class="card-img-top img-fluid img-thumbnail company-card" alt="pasport card logo" loading="lazy">
                             <div class="card-body">
 
                                 <h6 class="fullPolicyTitle">פירוט ביטוח מלא:</h6>
@@ -295,9 +326,9 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-6 mb-4">
+                    <div class="col-md-2 col-6 mb-4">
                         <div class="card h-200">
-                            <img src="Resources/Images/Nmigdal.png" class="card-img-top img-fluid img-thumbnail" alt="migdal logo" loading="lazy">
+                            <img src="Resources/Images/Nmigdal.png" class="card-img-top img-fluid img-thumbnail company-card" alt="migdal logo" loading="lazy">
                             <div class="card-body">
 
                                 <h6 class="fullPolicyTitle">פירוט ביטוח מלא:</h6>
@@ -318,9 +349,9 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-6 mb-4">
+                    <div class="col-md-2 col-6 mb-4">
                         <div class="card h-200">
-                            <img src="Resources/Images/harel.webp" class="card-img-top img-fluid img-thumbnail" alt="harel logo" loading="lazy">
+                            <img src="Resources/Images/harel.webp" class="card-img-top img-fluid img-thumbnail company-card" alt="harel logo" loading="lazy">
                             <div class="card-body">
 
                                 <h6 class="fullPolicyTitle">פירוט ביטוח מלא:</h6>
