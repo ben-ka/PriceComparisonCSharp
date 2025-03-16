@@ -1,4 +1,5 @@
-﻿﻿<!--background color: #b1e7fa-->
+﻿@model PriceComparison.Code.Broker
+﻿<!--background color: #b1e7fa-->
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 
@@ -8,7 +9,7 @@
     <title>השוואת מחירי ביטוח - ידע שווה כסף</title>
     <meta name="description" content="קבלו את הביטוח המותאם ביותר לצרכים שלכם במחיר משתלם במיוחד. השוואת מחירי ביטוח נסיעות לחול - ידע שווה כסף" />
     <meta name="keywords" content="ביטוח, ביטוח נסיעות, השוואת מחירים, נסיעות לחול , ידע שווה כסף, השוואת מחירי ביטוח" />
-    <link rel="icon" href="~/Resources/Images/logo-black-left.png" type = "image/png">
+    <link rel="icon" href="~/Resources/Images/logo-black-left.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="Styles/Style.css?v=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +27,7 @@
     </script>
 
     <meta property="og:title" content="השוואת מחירי ביטוח - ידע שווה כסף" />
-    <meta property="og:description" content="קבלו את הביטוח המותאם ביותר לצרכים שלכם במחיר משתלם במיוחד. השוואת מחירי ביטוח נסיעות לחול - ידע שווה כסף" />
+    <meta property="og:description" content="קבלו את הביטוח המותאם ביותר לצרכים שלכם במחיר משתלם במיוחד. השוואת מחירי ביטוח נסיעות לחול - @Model.BrokerName" />
     <meta property="og:image" content="~/Resources/Images/logo-black-left.png" />
     <meta property="og:url" content="https://travelinsurance.ysc-ins.co.il/" />
 
@@ -34,53 +35,67 @@
 </head>
 
 <body>
-   <div class="container-fluid">
+    <div class="container-fluid">
         <div class="row h-100 g-0 d-flex" id="headerRow" style="position: relative;">
             <div class="col-md-8 g-0" id="right-img-bg">
                 <div class="row align-items-center">
                     @* <div id="navbarItems">
-                        <ul class="nav justify-content-right">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">דף הבית</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">למה דווקא אנחנו</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">הביטוחים שלנו</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">יצירת קשר</a>
-                            </li>
-                        </ul>
+                    <ul class="nav justify-content-right">
+                    <li class="nav-item">
+                    <a class="nav-link active" href="#">דף הבית</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">למה דווקא אנחנו</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">הביטוחים שלנו</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">יצירת קשר</a>
+                    </li>
+                    </ul>
                     </div> *@
 
                     <!-- Text Section -->
                     <div class="col-12" id="mainDesciption">
                         <h2>
-                            <span class="section-title" id="FirstTitle">  ביטוח נסיעות לחו"ל עושים עם </span>
+                            <span class="section-title" id="FirstTitle"> ביטוח נסיעות לחו"ל עושים עם </span>
                             <br />
-                            <span class="section-subtitle" id="nameTitle">  ידע שווה כסף</span>
+                            <span class="section-subtitle" id="nameTitle">  מומחה שמבין את הצרכים שלכם!</span>
                         </h2>
                         <br />
 
                         <p class="description">
-                            <span id="headerSubtitle1"> עם הקהילה שלנו, השוואת מחירי ביטוחי טיסות מעולם לא הייתה קלה יותר. <br />כל מה שצריך זה לבחור את מס הימים לטיסה, מס הנוסעים, גיל הנוסע ולבחור את  הכיסויים הרצויים לך,<br /> ולקבל תוך רגע את כל ההצעות המשתלמות  בחברות הביטוח העיקריות חברה.</span>
+                            <span id="headerSubtitle1"> כמו תמיד, דאגתי לביטוח הטוב והמותאם ביותר במיוחד עבורכם – עם כיסוי מקיף <br />ושקט נפשי בכל נסיעה, ובמחיר המשתלם ביותר.</span>
                             <br />
                             <br />
                             <span id="headerSubtitle2">
-                                כל מה שנותר הוא להיכנס דרך הקישורים מטה לדף המכירה היעודי שלנו בחברת הביטוח,בהצלחה
+                                הצטרפו עכשיו וגלו את השקט הנפשי שבלנסוע בידיעה שאתם מכוסים!
                             </span>
                         </p>
                         <div id="headerButtons">
                             <a href="#headingOne" class="btn btn-outline-light btn-lg">שאלות נפוצות</a>
                             <a href="#scrollCheckpoint" class="btn btn-outline-light btn-lg">השוואת מחירים</a>
                         </div>
+                        <!-- Broker Section -->
+                        <div class="row mt-5 align-items-center" id="broker-info">
+                            
+                            <div class="col-md-8 text-right section-subtitle">
+                                <h3 class="broker-details">@Model.BrokerName</h3>
+                                <p class="broker-details">
+                                    <strong>אימייל:</strong> <a href="mailto:@Model.BrokerEmail">@Model.BrokerEmail</a><br>
+                                    <strong>טלפון:</strong> <a href="tel:@Model.BrokerPhone">@Model.BrokerPhone</a>
+                                </p>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <img src=@Model.PictureLocation alt="Broker Image" class="broker-img img-fluid rounded-circle">
+                            </div>
+                        </div>
 
                     </div>
                 </div>
 
-                
+
             </div>
 
             <div class="col-md-4 g-0 d-flex">
@@ -92,15 +107,13 @@
 
         <div class="row h-100" id="marketing-row">
             <div class="container text-center mt-5">
-                <h2 class="section-title" id="whyusTitle">אז למה בעצם לבחור בנו?</h2>
+                <h2 class="section-title" id="whyusTitle">אז למה בעצם לבחור בי?</h2>
                 <p class="section-description" id="whyUsParagraph">
-                    דרך מנוע ההשוואה של ידע שווה כסף תחסכו זמן יקר באיתור ההצעות השונות לביטוח נסיעות לחו"ל והכל נעשה בשקיפות מלאה והצגת כל ההצעות במקום אחד.
-                    
+                    דרך מנוע ההשוואה שלי תחסכו זמן יקר באיתור ההצעות השונות לביטוח נסיעות לחו"ל והכל נעשה בשקיפות מלאה והצגת כל ההצעות במקום אחד.
                 </p>
-                <div class="row mt-5">
 
-                   
-                        <!-- First column is offset, skipping it -->
+                <div class="row mt-5">
+                    <!-- First column is offset, skipping it -->
                     <div class="col-md-3"></div>
 
                     <!-- Price Div in the center -->
@@ -108,11 +121,11 @@
                         <img src="Resources/Images/Group279.png" alt="Price" class="icon">
                         <h4 class="feature-title secondaryTitle">מחיר</h4>
                         <p class="feature-description WhyUsDescription">
-                            ידע שווה כסף, הקהילה הפיננסית הגדולה בישראל עם למעלה מ-250,000 איש חרטה על דגלה לשים את חברי הקהילה במרכז מה שאומר אתם נהנים מהמחירים הטובים ביותר ובזכות הכוח שלנו כקבוצה גדולה.
+                            עם גישה אישית לשירותי ביטוח, אני מבטיח לכם את המחירים המשתלמים ביותר עבור הביטוחים הדרושים לכם. בזכות שיתוף הפעולה שלי עם קהילת "ידע שווה כסף", לקוחותיי נהנים מהנחות מיוחדות ואטרקטיביות שאי אפשר למצוא במקומות אחרים.
                         </p>
                     </div>
 
-                    <!-- Service Div in the center, but offset by 3 on the right -->
+                    <!-- Service Div -->
                     <div class="col-md-3 offset-md-3 text-left" id="serviceDiv">
                         <img src="Resources/Images/Group280.png" alt="Service" class="icon">
                         <h4 class="feature-title secondaryTitle">שירות</h4>
@@ -120,38 +133,31 @@
                             בתוך דקות ספורות תוכלו להשוות במספר חברות ביטוח בתהליך דיגיטלי פשוט וקל שבסופו תקבלו את ההצעה המשתלמת ביותר עבורכם.
                         </p>
                     </div>
-                    
-
-                    @* <div class="col-md-4">
-                        <img src="Resources/Images/Group281.png" alt="Community" class="icon">
-                        <h4 class="feature-title secondaryTitle">קהילה</h4>
-                        <p class="feature-description WhyUsDescription">
-                            לורם איפסום דולור סיט אמט, קונסטקטור אדיפיסינג אלית קלורס מופרד אדנום סילקופ. מרגיש ומרגש.
-                        </p>
-                    </div> *@
-                    
                 </div>
+
+                
             </div>
         </div>
-        
+
+
 
         <div class="row h-100" id="right-img-bg">
             <div class="container text-center mt-5" id="scrollCheckpoint">
                 <h2 class="section-title" id="travelHeader">הידע שלנו, ההשוואה שלכם</h2>
                 <p class="section-description" id="travelParagraph">
-                    עם הקהילה שלנו, השוואת מחירי ביטוחי טיסות מעולם לא הייתה קלה יותר.
+                     השוואת מחירי ביטוחי טיסות מעולם לא הייתה קלה יותר.
                     כל מה שצריך זה להיכנס, לבחור את האפשרויות שמתאימות לך, ולקבל מבצעים מותאמים אישית.
-                    תוך רגע, תוכל לראות את כל ההצעות המשתלמות ביותר
+                    תוך רגע, תוכלו לראות את כל ההצעות המשתלמות ביותר
                     ולבחור את הביטוח המושלם עבורך בקלות ובמהירות.
                 </p>
                 <!-- Row to align number input and datalist horizontally -->
                 <div class="row mb-3" id="globalInputs">
                     <div class="col-md-4"> </div>
-                   
-                        
-                            
-                        
-                    
+
+
+
+
+
                     <div class="col-lg-2 h-100">
                         <label for="numberInput" class="form-label">מספר ימים בחו"ל</label>
                         <div class="input-group">
@@ -181,13 +187,13 @@
                     <button id="addFormButton" type="button" class="btn-add-passenger">הוסף נוסע</button>
                 </div>
 
-                
 
-                
+
+
                 <!-- Container to hold multiple forms -->
                 <div id="formsContainer" class="mb-5 col-lg-6 mx-auto">
                     <!-- Form -->
-                    <div class="form-container mb-5" id="form" >
+                    <div class="form-container mb-5" id="form">
                         <form>
                             <div class="mb-3 col-md-3">
                                 <label for="age" class="form-label">גיל</label>
@@ -254,8 +260,8 @@
                                             מחשב נייד/טאבלט
                                         </label>
                                     </div>
-                                
-                                
+
+
                                     <div class="form-check form-check-reverse">
                                         <input class="form-check-input"
                                                type="checkbox"
@@ -281,7 +287,7 @@
                             <button type="button" class="btn btn-warning" id="delete">מחק נוסע</button>
                         </div>
 
-                       
+
                     </div>
                 </div>
                 <div class="row">
@@ -297,11 +303,11 @@
                                     <li id="PhenixPassengers"> &#x202B;נוסע 1&#x202C;</li>
                                     <li id="PhenixPerDay">2$ ליום בממוצע</li>
                                 </ul>
-                                <div class="row" >
+                                <div class="row">
                                     <div class="col-5 priceTitle">עלות משוערת:</div>
                                     <div class="col-12 col-md-7 priceTag" id="Phenix">8$</div>
                                 </div>
-                                <a href="https://travel.agentsfnx.co.il/travel/landing.html?fnx_ANum=S5XcIg90LOs=&referrer=http://www.ysc-ins.co.il/" class="btn btn-primary container" target="_blank" name="פניקס">לרכישה</a>
+                                <a href=@Model.FNXURL class="btn btn-primary container" target="_blank" name="פניקס">לרכישה</a>
                                 <p class="priceDisclamer">
                                     ט.ל.ח המחירים באתר עשויים להשתנות בהתאם למצב הביטוחים וההצעות הזמינות.
                                     השוק דינמי, ולכן חשוב לבדוק באופן קבוע את המחירים והאפשרויות, כדי להבטיח שתקבלו את ההצעה הטובה ביותר עבורכם בזמן נתון.
@@ -325,8 +331,8 @@
                                     <div class="col-5 priceTitle">עלות משוערת:</div>
                                     <div class="col-12 col-md-7 priceTag" id="CardPassport">10$</div>
                                 </div>
-                                
-                                <a href="https://purchase.passportcard.co.il/existing?exT=VTJGc2RHVmtYMTg2bU9kaFFVYWVxdXNMOWVuZHIrTElEbXQrc21qd1Uvcz0%3D&t=VTJGc2RHVmtYMSswSzBOR1A1VExEUy9PdW1Ma0lLNlBQd1pLVUp5RWJjUlZlUERwYXhZaDNzakRCRTREVjJXMDNRZnh5OG1VVG0vZ0thRXpQVnZ6WFE9PQ%3D%3D&i=VTJGc2RHVmtYMSsxK2w1N3docDN0MEhrUDNPZU5iYllSb0ZBd0IvNE5iMWgwSUtadHNJa0F6ZFVuTUZFUy9kVlk1NU5yZkw0cjhwZTdlZ3pwSnhLL0xYRCtQUDZ1MS8zSDRDZkI5K3ovVEJuMmVER2tleDZoMUpjQ0w2NGdnQnh6UmhVaGdLQnlhMUc4V2dDeGRTNmVnPT0%3D&AffiliateId=AbXBUxfqzFLdO%2Ff3T3oLGQ%3D%3D" class="btn btn-primary container" target="_blank" name="פספורט קארד">לרכישה</a>
+
+                                <a href= @Model.PassportcardURL class="btn btn-primary container" target="_blank" name="פספורט קארד">לרכישה</a>
                                 <p class="priceDisclamer">
                                     ט.ל.ח המחירים באתר עשויים להשתנות בהתאם למצב הביטוחים וההצעות הזמינות.
                                     השוק דינמי, ולכן חשוב לבדוק באופן קבוע את המחירים והאפשרויות, כדי להבטיח שתקבלו את ההצעה הטובה ביותר עבורכם בזמן נתון.
@@ -352,8 +358,8 @@
                                     <div class="col-12 col-md-7 priceTag" id="Migdal">7.2$</div>
                                 </div>
 
-                               
-                                <a href="https://travel.migdal.co.il/travel/index?id=1849" class="btn btn-primary container" target="_blank" name="מגדל">לרכישה</a>
+
+                                <a href=@Model.MigdalURL class="btn btn-primary container" target="_blank" name="מגדל">לרכישה</a>
                                 <p class="priceDisclamer">
                                     ט.ל.ח המחירים באתר עשויים להשתנות בהתאם למצב הביטוחים וההצעות הזמינות.
                                     השוק דינמי, ולכן חשוב לבדוק באופן קבוע את המחירים והאפשרויות, כדי להבטיח שתקבלו את ההצעה הטובה ביותר עבורכם בזמן נתון.
@@ -379,8 +385,8 @@
                                     <div class="col-12 col-md-7 priceTag" id="Harel">8$</div>
                                 </div>
 
-                                
-                                <a href="https://digital.harel-group.co.il/travel-policy/?guid=533c4676-d81b-4701-a647-2e9f1ea8802d" class="btn btn-primary container" target="_blank" name="הראל">לרכישה</a>
+
+                                <a href=@Model.HarelURL class="btn btn-primary container" target="_blank" name="הראל">לרכישה</a>
                                 <p class="priceDisclamer">
                                     ט.ל.ח המחירים באתר עשויים להשתנות בהתאם למצב הביטוחים וההצעות הזמינות.
                                     השוק דינמי, ולכן חשוב לבדוק באופן קבוע את המחירים והאפשרויות, כדי להבטיח שתקבלו את ההצעה הטובה ביותר עבורכם בזמן נתון.
@@ -393,13 +399,13 @@
             </div>
 
 
-            
 
-           
-           
 
-           
-            
+
+
+
+
+
 
         </div>
         <div id="questionsAndAnswers" class="accordion accordion-flush mt-5">
@@ -451,7 +457,7 @@
                         3. תרופות מרשם: כיסוי להוצאות עבור תרופות מרשם שנדרשו כתוצאה מאירוע רפואי בזמן השהות בחו"ל. <br />
 
                         4. טיפולי חירום שיניים: חלק מהביטוחים כוללים כיסוי עבור טיפולי שיניים במקרי חירום, כמו שבר בשן או זיהום חמור. <br />
-                         
+
                         5. פינוי רפואי: במקרה של צורך בטיפול רפואי דחוף, הכיסוי עשוי לכלול פינוי לבית חולים קרוב, כולל פינוי אווירי במקרים חמורים. <br />
 
                         6. הטסה רפואית לישראל: אם יש צורך בהחזרת המבוטח לישראל להמשך טיפול, הכיסוי יכלול הוצאות עבור הטסה רפואית מלווה. <br />
@@ -460,7 +466,7 @@
 
                         8. טיפול במחלות קיימות: בחלק מהפוליסות יש כיסוי גם למחלות קיימות מראש (בהתאם לתנאי הפוליסה), אך לרוב יש צורך בהרחבה או שדרוג לכיסוי זה. <br />
 
-                        חשוב לבדוק את תנאי הפוליסה ולהבין מה בדיוק כלול, משום שכל חברת ביטוח יכולה להציע תנאים שונים או מגבלות על הכיסוי. 
+                        חשוב לבדוק את תנאי הפוליסה ולהבין מה בדיוק כלול, משום שכל חברת ביטוח יכולה להציע תנאים שונים או מגבלות על הכיסוי.
                     </div>
                 </div>
             </div>
@@ -489,18 +495,18 @@
             </div>
         </div>
 
-       
-
-   </div>
-    
 
 
+    </div>
+
+
+    <!-- Custom JavaScript file -->
+    <script src="Scripts/prices.js"></script>
     <!-- Bootstrap JavaScript libraries -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Custom JavaScript file -->
-    <script src="Scripts/prices.js"></script>
+
     @*     <script src="Scripts/test.js"></script> *@
 
 </body>

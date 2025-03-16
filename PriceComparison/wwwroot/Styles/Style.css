@@ -13,68 +13,12 @@
 html {
     height: 100%;
     margin: 0; /* Ensures there is no margin around the html */
-    font-family: "Open Sans Condensed";
+    font-family: "Rubik", sans-serif;
     scroll-behavior: smooth;
 }
 
-.header-container {
-    text-align: center;
-    padding: 20px;
-    margin: 20px;
-    background-color: #0F0B45; /* dark background color */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
 
-    .header-container h1 {
-        font-family: 'Arial', sans-serif; /* Change this to a font that matches your design */
-        font-size: 2em; /* Adjust the font size as needed */
-        color: #ddd; /* Text color */
-        margin: 0; /* Remove default margin */
-    }
 
-@media (max-width: 768px) {
-    .header-container h1 {
-        font-size: 1.5em; /* Smaller font size for mobile */
-    }
-}
-
-.secondary-header-container {
-    text-align: center;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-    .secondary-header-container h2 {
-        font-family: 'Arial', sans-serif; /* Change this to a font that matches your design */
-        font-size: 1.5em; /* Adjust the font size as needed */
-        color: #f8f9fa; /* Text color */
-        margin: 0; /* Remove default margin */
-    }
-
-@media (max-width: 1200px) {
-/*    body {*/
-        /*background-image: url('../Resources/Images/mobile-bg1.png?v=1');*/ /* Change to your mobile background image */
-        /*background-attachment: fixed;*/ /* Keeps the background image fixed in place */
-        /*background-size: cover;*/ /* Ensures the image covers the entire background */
-        /*background-position: top center;*/ /* Centers the image */
-        /*background-repeat: no-repeat;*/ /* Prevents the image from repeating */
-        /*margin: 0;*/ /* Ensures there is no margin around the body */
-    /*}*/
-
-    .secondary-header-container h2 {
-        font-size: 1em; /* Smaller font size for mobile */
-    }
-}
-
-@media (min-width: 1580px) {
-    .custom-col-2 {
-        flex: 0 0 16.666667%; /* equivalent to col-2 width in Bootstrap */
-        max-width: 16.666667%;
-    }
-}
 
 .form-container {
     padding: 20px;
@@ -83,14 +27,9 @@ html {
     background-color: #ffffff;
 
 }
-/*
-.company-card{
-    max-height: 30rem;
-}
-*/
-.form-check-label {
-    margin-left: 5px;
-}
+
+
+
 
 .form-label {
     display: block;
@@ -124,331 +63,509 @@ html {
     position: relative; /* To make z-index work */
 }
 
-.card:hover {
-    transform: scale(1.05); /* Slightly enlarge the card on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.2); /* Intensify the shadow on hover */
-    z-index: 10; /* Bring the card to the front on hover */
+@media only screen and (min-width: 768px) {
+    .card {
+        transition: all 0.3s ease;
+    }
+    .card:hover {
+        transform: scale(1.05); /* Slightly enlarge the card on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.2); /* Intensify the shadow on hover */
+        z-index: 10; /* Bring the card to the front on hover */
+    }
 }
 
 
-body {
-    font-family: "Open Sans Condensed";
-    background-color: #fff; /* Background color for the section */
-}
+    body {
+        font-family: "Rubik", sans-serif;
+        background-color: #fff; /* Background color for the section */
+    }
 
-.section-title {
-    font-size: 2.5rem;
-    color: #0F0B45; /* Dark blue color for the title */
-    margin-bottom: 1.5rem;
-}
+    .section-title {
+        font-size: 2.5rem;
+        color: #0F0B45; /* Dark blue color for the title */
+        margin-bottom: 1.5rem;
+    }
 
-.section-description {
-    font-size: 1.2rem;
-    color: #333; /* Dark gray color for the description text */
-    max-width: 800px;
-    margin: 0 auto; /* Center the description text */
-}
+    @media only screen and (max-width: 600px) {
+        .section-title {
+            font-size: 1.5rem !important;
+        }
+    }
 
-.icon {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 1rem;
-}
+    .icon {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 1rem;
+    }
 
-.feature-title {
-    font-size: 1.8rem;
-    color: #0F0B45; /* Dark blue color for the feature titles */
-    margin-bottom: 0.5rem;
-}
+    .feature-title {
+        font-size: 1.8rem;
+        color: #0F0B45; /* Dark blue color for the feature titles */
+        margin-bottom: 0.5rem;
+    }
 
-.feature-description {
-    font-size: 1rem;
-    color: #333; /* Dark gray color for the feature descriptions */
-    max-width: 300px;
-    margin: 0 auto; /* Center the feature description text */
-}
+    @media only screen and (max-width: 600px) {
+        .feature-title {
+            font-size: 1.8rem !important;
+        }
+    }
 
+    .feature-description {
+        font-size: 1rem;
+        color: #333; /* Dark gray color for the feature descriptions */
+        max-width: 300px;
+        margin: 0 auto; /* Center the feature description text */
+    }
 
-
-#right-img-bg {
-    background-color: #010021;
-    color: white;
-
-}
-
-.section-title #title {
-    font-size: 5.375rem;
-    font-weight: bold;
-    color: white;
-}
-
-.section-subtitle {
-    font-size: 5.375rem;
-    color: #00c2ff; /* Custom blue color for the subtitle */
-    
-}
-
-.description {
-    font-size: 2rem;
-    margin-top: 15px;
-}
+    @media only screen and (max-width: 700px) {
+        .feature-description {
+            font-size: 1.2rem !important;
+        }
+    }
 
 
-.btn-custom {
-    background-color: #00c2ff; /* Custom button color */
-    color: white;
-    margin-top: 0px;
-}
-
-    .btn-custom:hover {
-        background-color: #00a0cc;
+    #right-img-bg {
+        background-color: #010021;
         color: white;
     }
 
-#headerButtons{
-    align-content: center;
-    margin-bottom : 3rem;
-
-}
-
-#headerSubtitle1 {
-    color: #FFF;
-    text-align: right;
-    font-family: "Open Sans Condensed";
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 300;
-    line-height: 2.25rem; /* 112.5% */
-
-}
-
-#headerSubtitle2 {
-    color: #FFF;
-    font-family: "Open Sans Condensed";
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 2.25rem;
-}
-
-.nav-link {
-    color: white;
-    font-size: 1.5625rem;
-}
-
-
-#travelParagraph {
-    font-size: 2.375rem;
-    font-weight: 400;
-    color: white;
-}
-
-#travelHeader {
-    color: #57C7EF;
-    font-size: 4.375rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 5.3125rem;
-}
-
-
-#formsContainer {
-    padding: 50px;
-    color: #0C0C0C;
-    text-align: right;
-    font-size: 1.75rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 3.5rem; 
-    margin-bottom: 30rem;
-}
-
-#globalInputs {
-    padding: 50px;
-}
-
-#delete{
-    margin-top: 10rem;
-}
-
-#addFormButton{
-    text-align: center;
-}
-
-.card-title {
-    font-size: 1.375rem;
-    font-weight: 300;
-    line-height: 2.25rem;
-    color: #0C0C0C;
-}
-
-.feature-list {
-    list-style: none; /* Remove default bullet points */
-    padding: 0;
-    position: relative; /* Ensure positioning works */
-}
-
-    .feature-list li {
-        position: relative;
-        padding-right: 30px; /* Add space on the right for the image */
+    .section-title #title {
+        font-size: 4rem;
+        font-weight: bold;
+        color: white;
     }
 
-        .feature-list li::before {
-            content: ""; /* Empty content for the pseudo-element */
-            position: absolute; /* Position the image absolutely */
-            right: 17%; /* Align the image to the right */
-            top: 50%; /* Vertically center the image */
-            transform: translateY(-50%); /* Adjust centering */
-            width: 20px; /* Set image width */
-            height: 20px; /* Set image height */
-            background-image: url('../Resources/Images/checkMark.png'); /* Replace with your image */
-            background-size: contain; /* Ensure the entire image fits */
-            background-repeat: no-repeat; /* Prevent repeating the image */
+    @media only screen and (max-width: 700px) {
+        .section-title #title {
+            font-size: 3rem !important;
+        }
+    }
+
+    .section-subtitle {
+        font-size: 4rem;
+        color: #00c2ff; /* Custom blue color for the subtitle */
+    }
+
+    @media only screen and (max-width: 700px) {
+        .section-subtitle {
+            font-size: 3rem !important;
+        }
+    }
+
+    .description {
+        font-size: 2rem;
+        margin-top: 15px;
+    }
+
+    @media only screen and (max-width: 700px) {
+        .description {
+            font-size: 1.4rem !important;
+        }
+    }
+
+
+    .btn-custom {
+        background-color: #00c2ff; /* Custom button color */
+        color: white;
+        margin-top: 0px;
+    }
+
+        .btn-custom:hover {
+            background-color: #00a0cc;
+            color: white;
         }
 
-#whyusTitle {
-    color:#010021;
-    font-size: 3.375rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 5.3125rem; /* 157.407% */
-}
+    #headerButtons {
+        align-content: center;
+        margin-bottom: 3rem;
+    }
 
-#whyUsParagraph {
-    color: #0C0C0C;
-    text-align: center;
-    font-size: 1.75rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 2.25rem; /* 128.571% */
-}
+    #headerSubtitle1 {
+        color: #FFF;
+        text-align: right;
+        font-family: "Rubik", sans-serif;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 2.25rem; /* 112.5% */
+    }
 
-.icon {
-    width: 5.56331rem;
-    height: 5.56331rem;
-}
 
-.secondaryTitle {
-    color: #0C0C0C;
-    text-align: center;
-    font-size: 1.75rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 2.25rem; /* 128.571% */
-}
 
-.WhyUsDescription {
-    color: #0C0C0C;
-    text-align: center;
-    font-size: 1.75rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 2.25rem; /* 128.571% */
-}
+    #headerSubtitle2 {
+        color: #FFF;
+        font-family: "Rubik", sans-serif;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 2.25rem;
+    }
 
-#marketing-row{
-    margin-bottom: 8rem;
-    margin-top : 5rem;
-}
+    @media only screen and (max-width: 700px) {
+        #headerSubtitle1, #headerSubtitle2 {
+            font-size: 1.4rem !important;
+        }
+    }
 
-#navbarItems {
-    margin-bottom: 10rem;
-}
 
-.nav-item{
-    
-    margin-right: 5rem;
-}
-.nav-link {
-    color: #FFF;
-    font-family: "Open Sans Condensed";
-    font-size: 1.5625rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
 
-.active {
-    color: #57C7EF;
-    font-weight: 700;
-}
+    .nav-link {
+        color: white;
+        font-size: 1.5625rem;
+    }
 
-#FirstTitle {
-    color: #FFF;
-    font-family: "Open Sans Condensed";
-    font-size: 5.375rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 5.3125rem; /* 98.837% */
-}
+    @media only screen and (max-width: 700px) {
+        .nav-link {
+            font-size: 1.4rem !important;
+        }
+    }
 
-#nameTitle {
-    color: #57C7EF;
-    font-family: "Open Sans Condensed";
-    font-size: 5.375rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 5.3125rem;
-}
 
-.priceTag h2 {
-    font-size: 3.5rem; /* Adjust font size to make sure it fits */
-    line-height: 4rem; /* Increase line-height if needed */
-    color: #0C0C0C;
-    margin: 0; /* Ensure no additional margins */
-}
+    #travelParagraph {
+        font-size: 2.375rem;
+        font-weight: 400;
+        color: white;
+    }
 
-.priceTitle, .priceTag {
-    display: flex;
-    justify-content: space-between; /* Ensure title and price are properly aligned */
+    @media only screen and (max-width: 700px) {
+        #travelParagraph {
+            font-size: 1.7rem !important;
+        }
+    }
+
+    #travelHeader {
+        color: #57C7EF;
+        font-size: 4.375rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 5.3125rem;
+    }
+
+    @media only screen and (max-width: 700px) {
+        #travelHeader {
+            font-size: 3rem !important;
+        }
+    }
+
+    #formsContainer {
+        padding: 50px;
+        color: #0C0C0C;
+        text-align: right;
+        font-size: 1.75rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 3.5rem;
+        margin-bottom: 30rem;
+    }
+
+
+
+
+
+    #globalInputs {
+        padding: 50px;
+    }
+
+    #delete {
+        margin-top: 10rem;
+    }
+
+    #addFormButton {
+        text-align: center;
+    }
+
+    .card-title {
+        font-size: 1.375rem;
+        font-weight: 300;
+        line-height: 2.25rem;
+        color: #0C0C0C;
+    }
+
+    .feature-list {
+        list-style: none; /* Remove default bullet points */
+        padding: 0;
+        position: relative; /* Ensure positioning works */
+    }
+
+        .feature-list li {
+            position: relative;
+            padding-right: 1rem; /* Add space on the right for the image */
+        }
+
+            .feature-list li::before {
+                content: ""; /* Empty content for the pseudo-element */
+                position: absolute; /* Position the image absolutely */
+                right: 0%; /* Align the image to the right */
+                top: 50%; /* Vertically center the image */
+                transform: translateY(-50%); /* Adjust centering */
+                width: 20px; /* Set image width */
+                height: 20px; /* Set image height */
+                background-image: url('../Resources/Images/checkMark.png'); /* Replace with your image */
+                background-size: contain; /* Ensure the entire image fits */
+                background-repeat: no-repeat; /* Prevent repeating the image */
+            }
+
+    #whyusTitle {
+        color: #010021;
+        font-size: 3.375rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 5.3125rem; /* 157.407% */
+    }
+
+    @media only screen and (max-width: 700px) {
+        #whyusTitle {
+            font-size: 2.5rem !important;
+        }
+    }
+
+    #whyUsParagraph {
+        color: #0C0C0C;
+        text-align: center;
+        font-size: 1.75rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 2.25rem; /* 128.571% */
+    }
+
+    @media only screen and (max-width: 700px) {
+        #whyUsParagraph {
+            font-size: 1.5rem !important;
+        }
+    }
+
+    .icon {
+        width: 5.56331rem;
+        height: 5.56331rem;
+    }
+
+    .secondaryTitle {
+        color: #0C0C0C;
+        text-align: center;
+        font-size: 1.75rem;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 2.25rem; /* 128.571% */
+    }
+
+    .WhyUsDescription {
+        color: #0C0C0C;
+        text-align: center;
+        font-size: 1.75rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 2.25rem; /* 128.571% */
+    }
+
+    @media only screen and (max-width: 700px) {
+        .WhyUsDescription {
+            font-size: 1.5rem !important;
+        }
+    }
+
+    #marketing-row {
+        margin-bottom: 8rem;
+        margin-top: 5rem;
+    }
+
+    #navbarItems {
+        margin-bottom: 10rem;
+    }
+
+    .nav-item {
+        margin-right: 5rem;
+    }
+
+
+
+
+    #FirstTitle {
+        color: #FFF;
+        font-family: "Rubik", sans-serif;
+        font-size: 3.5rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 3rem; /* 98.837% */
+    }
+
+    @media only screen and (max-width: 700px) {
+        #FirstTitle {
+            font-size: 2.8rem !important;
+        }
+    }
+
+    #nameTitle {
+        color: #57C7EF;
+        font-family: "Rubik", sans-serif;
+        font-size: 3.5rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 3rem;
+    }
+
+    @media only screen and (max-width: 700px) {
+        #nameTitle {
+            font-size: 2.8rem !important;
+        }
+    }
+
+
+
+    .priceTag h2 {
+        font-size: 2.7rem; /* Adjust font size to make sure it fits */
+        line-height: 4rem; /* Increase line-height if needed */
+        color: #0C0C0C;
+        margin: 0; /* Ensure no additional margins */
+    }
+
+
+
+    .priceTitle, .priceTag {
+        display: flex;
+        justify-content: space-between; /* Ensure title and price are properly aligned */
+        /*    align-items: center;*/
+    }
+
+    .priceTag {
+        text-align: right;
+        font-family: "Rubik", sans-serif;
+        font-size: 2.7rem;
+        font-weight: 700; /* Adjust line-height to fit price properly */
+        color: #0C0C0C;
+        margin-bottom: 1rem; /* Add margin at the bottom to prevent overlap with button */
+    }
+
+    @media only screen and (max-width: 700px) {
+        .priceTag, .priceTag h2 {
+            font-size: 1.8rem !important;
+        }
+    }
+
+
+    .form-check-input {
+        border-color: #0056b3; /* Darker blue on hover */
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Optional glow effect */
+    }
+
+
+    .fullPolicyList {
+        color: #0C0C0C;
+        font-family: "Rubik", sans-serif;
+        font-size: 1.375rem;
+        font-weight: 300;
+        line-height: 1.75rem; /* Adjust line-height if necessary */
+    }
+
+    .card-body {
+        padding-bottom: 2rem; /* Ensure enough padding at the bottom */
+    }
+
+    .priceTitle {
+        color: #0C0C0C;
+        text-align: right;
+        font-family: "Rubik", sans-serif;
+        font-size: 1.375rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 2.25rem; /* 163.636% */
+    }
+
+
+    #right-img-bg {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Ensure the parent column is positioned relatively */
+    #right-img-bg {
+        position: relative;
+    }
+
+    #mainDesciption {
+        text-align: center;
+        margin-top: 5rem;
+    }
+
+.btn-add-passenger {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
     align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.priceTag {
-    text-align: right;
-    font-family: "Open Sans Condensed";
-    font-size: 3.5rem;
-    font-weight: 700; /* Adjust line-height to fit price properly */
-    color: #0C0C0C;
-    margin-bottom: 1rem; /* Add margin at the bottom to prevent overlap with button */
-}
+    .btn-add-passenger:hover {
+        background-color: #2980b9;
+        transform: scale(1.05);
+    }
 
-.fullPolicyList {
-    color: #0C0C0C;
-    font-family: "Open Sans Condensed";
-    font-size: 1.375rem;
-    font-weight: 300;
-    line-height: 1.75rem; /* Adjust line-height if necessary */
-}
+    .btn-add-passenger::after {
+        content: " +  ";
+        margin-right: 0.2rem;
+        font-size: 1.2em;
+    }
 
-.card-body {
-    padding-bottom: 2rem; /* Ensure enough padding at the bottom */
-}
-
-.priceTitle {
-    color: #0C0C0C;
-    text-align: right;
-    font-family: "Open Sans Condensed";
-    font-size: 1.375rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 2.25rem; /* 163.636% */
-}
-
-
-#right-img-bg {
-    margin: 0;
-    padding: 0;
-}
-
-/* Ensure the parent column is positioned relatively */
-#right-img-bg {
-    position: relative;
-}
-
-#mainDesciption{
+.priceDisclamer {
+    margin-top:0.5rem;
     text-align: center;
-    margin-top: 5rem;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.0625rem;
+    margin-bottom:0;
+}
+@media only screen and (max-width: 700px) {
+    .priceDisclamer {
+        font-size: 0.5rem;
+    }
+}
+
+@media only screen and (min-width: 700px){
+    #questionsAndAnswers{
+        margin-top: 5rem !important; 
+    }
+}
+
+#headerFAQ{
+    color: white;
+}
+
+.accordion-header{
+    text-align:center;
+}
+
+/* broker design
+*/
+.broker-img {
+    width: 450px;
+    height: 450px;
+    object-fit: cover;
+    border: 3px solid #007bff;
 }
 
 
+
+.broker-details {
+    font-size: 4rem;
+    color: #ffffff; 
+    text-decoration: none;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 700px) {
+    .broker-details {
+        font-size: 1.5rem !important;
+    }
+}
+
+
+
+    .broker-details a:hover {
+        text-decoration: underline;
+    }

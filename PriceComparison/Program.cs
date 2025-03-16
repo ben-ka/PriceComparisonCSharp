@@ -1,3 +1,5 @@
+using PriceComparison.Code;
+
 namespace PriceComparison
 {
     public class Program
@@ -8,6 +10,8 @@ namespace PriceComparison
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddSingleton<BrokerService>();
 
             var app = builder.Build();
 
@@ -24,6 +28,12 @@ namespace PriceComparison
             app.UseRouting();
 
             app.UseAuthorization();
+
+            // Custom route for brokers
+            app.MapControllerRoute(
+                name: "broker",
+                pattern: "{brokerId}",
+                defaults: new { controller = "Broker", action = "Index" });
 
             app.MapControllerRoute(
                 name: "default",

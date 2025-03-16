@@ -65,7 +65,8 @@ namespace PriceComparison.Controllers
                     
                     foreach (Companies company in Enum.GetValues(typeof(Companies)))
                     {
-                        decimal totalPrice = _priceCalculator.CalculatePrice(passenger, company, destination, request.DaysAbroad);
+                        decimal totalPrice = Math.Round(_priceCalculator.CalculatePrice(passenger, company, destination, request.DaysAbroad), 2);
+
                         companyPrices[company] += (totalPrice); 
                     }
                 }

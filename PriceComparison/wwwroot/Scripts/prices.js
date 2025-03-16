@@ -1,6 +1,7 @@
 ﻿
 
 
+
 function checkInput() {
     var numberInputElement = document.getElementById('numberInput');
     var numberInputValue = parseInt(numberInputElement.value);
@@ -14,6 +15,8 @@ function checkInput() {
 }
 
 document.getElementById('numberInput').addEventListener('change', checkInput);
+const deleteButton = document.querySelector('.btn-warning');
+deleteButton.style.visibility = 'hidden';
 
 
 async function submitFormData() {
@@ -98,7 +101,6 @@ async function submitFormData() {
     }
 }
 
-
 document.getElementById('addFormButton').addEventListener('click', function () {
     const originalForm = document.getElementById('form');
 
@@ -129,6 +131,7 @@ document.getElementById('addFormButton').addEventListener('click', function () {
     });
 
     const deleteButton = newForm.querySelector('.btn-warning');
+    deleteButton.style.visibility = 'visible';
     deleteButton.addEventListener('click', function () {
         if (newForm.classList.contains('cloned-form')) {
             formsContainer.removeChild(newForm);
@@ -217,11 +220,13 @@ function addLinkClickListeners() {
             const company = this.getAttribute('name');
 
             // Find the price element in the card ('.priceTag h2')
-            const priceElement = this.closest('.card').querySelector('.priceTag h2');
+            const priceElement = this.closest('.card').querySelector('.priceTag');
+            
 
             // Extract the price from the text (removing the '$' and any extra spaces)
             const priceLine = priceElement ? priceElement.textContent : '0$';
             const price = parseFloat(priceLine.replace('$', '').trim());
+            console.log(price)
 
             // Call the recordLinkClick function with updated parameters
             recordLinkClick(
@@ -238,3 +243,124 @@ function addLinkClickListeners() {
 document.addEventListener('DOMContentLoaded', function () {
     addLinkClickListeners();
 });
+
+// Function to check if URLs are null/empty and hide corresponding cards
+function adjustCards() {
+    // Get all cards and map to their parent containers
+    const cardElements = document.querySelectorAll('.card');
+    const cards = [];
+
+    // For each card, find its parent column
+    cardElements.forEach(card => {
+        let parent = card.parentElement;
+        // Go up the DOM tree until we find a parent with col-md-2 or col-6 class
+        while (parent && !parent.classList.contains('col-md-2') && !parent.classList.contains('col-6')) {
+            parent = parent.parentElement;
+        }
+        if (parent) {
+            cards.push(parent);
+        }
+    });
+
+    let visibleCardsCount = 0;
+
+    // Check each card's link
+    cards.forEach(card => {
+        const link = card.querySelector('a.btn');
+        // If link exists and its href is not empty/null (after trimming)
+        if (link && link.getAttribute('href') && link.getAttribute('href').trim() !== '' &&
+            link.getAttribute('href').trim() !== 'null' &&
+            !link.getAttribute('href').includes('@Model')) {
+            visibleCardsCount++;
+        } else {
+            // Hide the card's container
+            card.style.display = 'none';
+        }
+    });
+
+    // Adjust the width of remaining cards
+    if (visibleCardsCount > 0 && visibleCardsCount < 4) {
+        const newColWidth = Math.floor(8 / visibleCardsCount);
+
+        // Calculate left margin for centering (total space is 12 - (cards * width))
+        const totalSpace = 12 - (visibleCardsCount * newColWidth);
+        const leftMargin = Math.floor(totalSpace / 2);
+
+        // Get the row that contains the cards
+        const row = cards[0].closest('.row');
+
+        // Clear all existing children and prepare to rebuild
+        const rowClone = row.cloneNode(false);
+
+        // First add the left margin spacer
+        const leftSpacer = document.createElement('div');
+        leftSpacer.classList.add(`col-md-${leftMargin}`);
+        rowClone.appendChild(leftSpacer);
+
+        // Then add each visible card with new width
+        cards.forEach(card => {
+            if (card.style.display !== 'none') {
+                // Clone the card element
+                const cardClone = card.cloneNode(true);
+
+                // Remove existing col-* classes
+                cardClone.classList.forEach(className => {
+                    if (className.startsWith('col-md-') || className.startsWith('col-')) {
+                        cardClone.classList.remove(className);
+                    }
+                });
+
+                // Add new classes
+                cardClone.classList.add(`col-md-${newColWidth}`);
+                cardClone.classList.add(`col-${Math.min(12, newColWidth * 2)}`);
+
+                // Add to the new row
+                rowClone.appendChild(cardClone);
+            }
+        });
+
+        // Finally add right margin spacer if needed (to handle odd number of columns)
+        const rightMargin = totalSpace - leftMargin;
+        if (rightMargin > 0) {
+            const rightSpacer = document.createElement('div');
+            rightSpacer.classList.add(`col-md-${rightMargin}`);
+            rowClone.appendChild(rightSpacer);
+        }
+
+        // Replace the old row with the new one
+        row.parentNode.replaceChild(rowClone, row);
+    }
+}
+
+// Add CSS for smoother transitions
+const style = document.createElement('style');
+style.textContent = `
+  .card {
+    transition: all 0.3s ease;
+  }
+  
+  .row > [class*="col-"] {
+    transition: width 0.3s ease, flex 0.3s ease;
+  }
+`;
+document.head.appendChild(style);
+
+// Try multiple approaches to ensure the function runs
+// Option 1: Run immediately if document is already loaded
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(adjustCards, 1);
+}
+
+// Option 2: Use window.onload (runs after all resources like images are loaded)
+window.onload = function () {
+    adjustCards();
+};
+
+// Option 3: Add script at the end of the body
+// (This works if script is placed at the end of the body)
+adjustCards();
+
+// Option 4: Use jQuery if it's available
+if (typeof jQuery !== 'undefined') {
+    jQuery(document).ready(adjustCards);
+}
